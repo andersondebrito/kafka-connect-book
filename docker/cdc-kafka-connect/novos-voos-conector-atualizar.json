@@ -1,0 +1,32 @@
+{
+   "connector.class": "io.debezium.connector.mongodb.MongoDbConnector",
+   "mongodb.connection.string": "mongodb://mongodb:27017",
+   "mongodb.user": "user",
+   "mongodb.password": "password",
+   "database.include.list": "livro-kafka",
+   "collection.include.list": "livro-kafka.voos",
+   "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+   "key.converter.schemas.enable": "false",
+   "skipped.operations": "u,t",
+   "topic.prefix": "ms-companhias-aereas",
+   "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+   "value.converter.schemas.enable": "false",
+   
+   "transforms": "extractNewDocumentState,rename,precosAbaixoDe2000Reais,origemSomenteDeSP",
+
+   "transforms.extractNewDocumentState.type":"io.debezium.connector.mongodb.transforms.ExtractNewDocumentState",
+   "transforms.extractNewDocumentState.drop.tombstones": "false",
+   
+   "transforms.rename.type": "org.apache.kafka.connect.transforms.RegexRouter",
+   "transforms.rename.regex": ".*",
+   "transforms.rename.replacement": "voos.novos",
+
+   "transforms.precosAbaixoDe2000Reais.type": "io.debezium.transforms.Filter",
+   "transforms.precosAbaixoDe2000Reais.language": "jsr223.groovy",
+   "transforms.precosAbaixoDe2000Reais.condition": "new BigDecimal(value.preco.adulto) < 2000 && new BigDecimal(value.preco.crianca) < 2000",
+
+   "transforms.origemSomenteDeSP.type": "io.confluent.connect.transforms.Filter$Value",
+   "transforms.origemSomenteDeSP.filter.condition": "$.origem[?(@.aeroporto == 'CGH' || @.aeroporto == 'GRU')]",
+   "transforms.origemSomenteDeSP.filter.type": "include",
+   "transforms.origemSomenteDeSP.missing.or.null.behavior": "fail"
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../../../Casa do Código/Livro de Kafka Connect e Kafka Streams/livro-kafka-connect/ms-pacote/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../Casa do Código/Livro de Kafka Connect e Kafka Streams/livro-kafka-connect/ms-pesquisa/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../Casa do Código/Livro de Kafka Connect e Kafka Streams/livro-kafka-connect/ms-companhias-aereas/pom.xml" />
+        <option value="$PROJECT_DIR$/../../../Casa do Código/Livro de Kafka Connect e Kafka Streams/livro-kafka-connect/ms-selecao-hospedagens/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="22" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/../../../Casa do Código/Livro de Kafka Connect e Kafka Streams/livro-kafka-connect/out" />
+  </component>
+</project>
